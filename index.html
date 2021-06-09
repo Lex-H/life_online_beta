@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scale=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Jquery Mobile <title>預設為data-role="header"內容 -->
     <title>人生Online Beta</title>
     <script src="js/jquery-3.6.0.js"></script>
@@ -25,42 +25,61 @@
 </head>
 
 <body>
-    <!-- 第一頁 -->
-    <div data-role="page" id="page1" data-theme="a">
+    <!-- 紀錄睡眠 page_form -->
+    <div data-role="page" id="page_form" data-theme="a">
+        <div data-role="panel" id="page_form_panel" data-display="overlay">
+            <a data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+            <a href="#page_form" data-role="button">紀錄睡眠</a>
+            <a href="#page_report" data-role="button">統計報告</a>
+        </div>
         <div data-role="header" data-position="fixed">
-            <h1>睡眠紀錄</h1>
+            <a href="#page_form_panel" data-icon="bars" data-iconpos="notext"></a>
+            <h1>紀錄睡眠</h1>
         </div>
         <div data-role="content">
-            <a href="#page2" data-role="button" data-transition="flip">第二頁</a>
+            <a href="#page_form_result" data-role="button">測試：送出表單結果</a>
         </div>
         <div data-role="footer" data-position="fixed">
-            <h4>Copyright 2021</h4>
+            <h6>Copyright 2021 Lex</h6>
         </div>
     </div>
-    <!-- 第二頁 -->
-    <div data-role="page" id="page2" data-theme="a">
-        <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="上一頁">
-            <h1>睡眠紀錄</h1>
+
+    <!-- 送出表單結果 page_form_result -->
+    <div data-role="page" id="page_form_result" data-theme="a">
+        <div data-role="panel" id="page_form_result_panel" data-display="overlay">
+            <a data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+            <a href="#page_form" data-role="button">紀錄睡眠</a>
+            <a href="#page_report" data-role="button">統計報告</a>
+        </div>
+        <div data-role="header" data-position="fixed">
+            <a href="#page_form_result_panel" data-icon="bars" data-iconpos="notext"></a>
+            <h1>睡眠紀錄已儲存</h1>
         </div>
         <div data-role="content">
-            這是第二頁
-            <a href="#page3" data-role="button">第三頁</a>
+            
         </div>
         <div data-role="footer" data-position="fixed">
-            <h4>Copyright 2021</h4>
+            <h6>Copyright 2021 Lex</h6>
         </div>
     </div>
-    <!-- 第三頁 -->
-    <div data-role="page" id="page3" data-theme="a">
-        <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="上一頁">
-            <h1>睡眠紀錄</h1>
+
+    <!-- 統計報告 page_report -->
+    <div data-role="page" id="page_report" data-theme="a">
+        <div data-role="panel" id="page_report_panel" data-display="overlay">
+            <a data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+            <a href="#page_form" data-role="button">紀錄睡眠</a>
+            <a href="#page_report" data-role="button">統計報告</a>
+        </div>
+        <div data-role="header" data-position="fixed">
+            <a href="#page_report_panel" data-icon="bars" data-iconpos="notext"></a>
+            <!-- 這裡可能有bug -->
+            <h1>統計報告</h1>
         </div>
         <div data-role="content">
-            這是第三頁
-            <a href="#page2" data-role="button">第二頁</a>
+            
         </div>
         <div data-role="footer" data-position="fixed">
-            <h4>Copyright 2021</h4>
+            <h6>Copyright 2021 Lex</h6>
         </div>
     </div>
 </body>

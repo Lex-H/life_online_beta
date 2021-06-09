@@ -25,12 +25,39 @@
 </head>
 
 <body>
+    <!-- 第一頁 -->
     <div data-role="page" id="page1" data-theme="a">
         <div data-role="header" data-position="fixed">
             <h1>睡眠紀錄</h1>
         </div>
         <div data-role="content">
-            <a href="#" data-role="button">按鈕</a>
+            <a href="#page2" data-role="button" data-transition="trun">第二頁</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>Copyright 2021</h4>
+        </div>
+    </div>
+    <!-- 第二頁 -->
+    <div data-role="page" id="page2" data-theme="a">
+        <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="上一頁">
+            <h1>睡眠紀錄</h1>
+        </div>
+        <div data-role="content">
+            這是第二頁
+            <a href="#page3" data-role="button">第三頁</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <h4>Copyright 2021</h4>
+        </div>
+    </div>
+    <!-- 第三頁 -->
+    <div data-role="page" id="page3" data-theme="a">
+        <div data-role="header" data-position="fixed" data-add-back-btn="true" data-back-btn-text="上一頁">
+            <h1>睡眠紀錄</h1>
+        </div>
+        <div data-role="content">
+            這是第三頁
+            <a href="#page2" data-role="button">第二頁</a>
         </div>
         <div data-role="footer" data-position="fixed">
             <h4>Copyright 2021</h4>

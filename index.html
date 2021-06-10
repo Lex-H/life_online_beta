@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 從主屏幕以全屏模式啓動頁面 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <!-- Jquery Mobile <title>預設為data-role="header"內容 -->
-    <title>人生Online Beta</title>
+    <title>人生Online 4.0 Beta</title>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/jquery-migrate-1.4.1.js"></script>
     <script src="js/jquery-migrate-3.3.2.js"></script>
@@ -25,6 +28,10 @@
 </head>
 
 <body>
+    <!-- 開頭動畫 page_opening -->
+    <div data-role="page" id="page_opening">
+        開頭動畫(含音樂)
+    </div>
     <!-- 紀錄睡眠 page_form -->
     <div data-role="page" id="page_form" data-theme="a">
         <div data-role="panel" id="page_form_panel" data-display="overlay">

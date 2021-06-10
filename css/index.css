@@ -1,0 +1,22 @@
+/* 開頭動畫 page_opening */
+#page_opening {
+    background-color: black;
+}
+/* 動畫設定開始 */
+@keyframes opening_animation{
+    0% {width: 0px;}
+    100% {width: 192px;}
+}
+#logo_icon_background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: opening_animation 2s linear 0s 1 normal;
+}
+audio {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* 這個記得刪除 */
+}

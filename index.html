@@ -9,13 +9,15 @@
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Jquery Mobile <title>預設為data-role="header"內容 -->
     <title>紀錄睡眠APP</title>
+    <!-- 函示庫 -->
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/jquery-migrate-1.4.1.js"></script>
     <script src="js/jquery-migrate-3.3.2.js"></script>
     <script src="js/jquery.mobile-1.4.5.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
-    <!-- 以下是自訂的 data-theme -->
+    <!-- 自訂的 data-theme -->
     <link rel="stylesheet" href="css/theme01_moring.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
     <!-- 主題A色票
     來源：https://color.adobe.com/zh/search?q=moring
         /* Color Theme Swatches in Hex */
@@ -25,20 +27,36 @@
     .More-like-this-2-4-hex { color: #C8E8DF; }
     .More-like-this-2-5-hex { color: #B8EEFF; }
     -->
-    <link rel="stylesheet" href="css/index.css">
     <!-- 安裝APP到桌面設定 -->
     <link rel="manifest" href="manifest.webmanifest">
+    <!-- 網站程式碼 -->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
 </head>
-
 <body>
     <!-- 開頭動畫 page_opening -->
-    <div data-role="page" id="page_opening">
-        <img id="logo_icon_background" src="images/logo_icon_background.png" alt="logo_icon_background">
+    <div data-role="page" id="page_opening"  data-theme="a">
+        <div data-role="content" id="content_page_opening">
+            <form method="GET" action="">
+                <a href="#" data-role="button" id="button_gotoform_page_opening">紀錄睡眠</a>
+                <br>
+                <a href="#" data-role="button" id="button_gotoreport_page_opening">統計報告</a>
+                <br>
+                <br>
+                <label for="sound_switch">音效</label>
+                <select name="sound_switch" id="sound_switch" data-role="slider">
+                    <option value="on">開啟</option>
+                    <option value="off">關閉</option>
+                </select>
+            </form>
+        </div>
+        <!-- <img id="logo_icon_background" src="images/logo_icon_background.png" alt="logo_icon_background">
         <audio controls loop>
             <source src="music/compressed_Danse Macabre - Busy Strings - Kevin MacLeod.mp3" type="audio/mpeg">
-            <!-- 正式上線之前確認版權，註明出處 可能來自這邊https://studio.youtube.com/channel/UC99GWbqLwEwE1N5riSLlnAg/music -->
-        </audio>
+        </audio> -->
+        <!-- 正式上線之前確認版權，註明出處 可能來自這邊https://studio.youtube.com/channel/UC99GWbqLwEwE1N5riSLlnAg/music -->
     </div>
+
     <!-- 紀錄睡眠 page_form -->
     <div data-role="page" id="page_form" data-theme="a">
         <div data-role="panel" id="page_form_panel" data-display="overlay">

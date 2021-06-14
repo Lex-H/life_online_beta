@@ -79,24 +79,41 @@
             <h1>紀錄睡眠</h1>
         </div>
         <div data-role="content">
-            <form method="POST" action="">
-                <label for="date_form">日期</label>
-                <input type="date" id="date_form" name="date_form" required>
-                <div class="ui-grid-a">
-                    <!-- 設定兩欄 ui-grid-a a=2欄 b=3欄... -->
-                    <div class="ui-block-a">
-                        <!-- 第一列第一欄 ui-block-a a=第一欄 b=第二欄... -->
+            <form method="GET" action="#page_form_result"> <!-- 這裡的設定式測試用的 到時候要改成 method、action按照後端需求改 -->
+                <!-- 表單元件：日期 -->
+                <label for="date_sleep_form">日期</label>
+                <input type="date" id="date_sleep_form" name="date_sleep_form" required>
+
+                <div class="ui-grid-a"> <!-- 設定兩欄 ui-grid-a a=2欄 b=3欄... -->
+                    <!-- 表單元件：起床時間 -->
+                    <div class="ui-block-a"> <!-- 第一列第一欄 ui-block-a a=第一欄 b=第二欄... -->
                         <label for="sleep_time_form">起床時間</label>
                         <input type="time" id="sleep_time_form" name="sleep_time_form" required>
                     </div>
+                    <!-- 表單元件：睡眠時長 -->
                     <div class="ui-block-b">
                         <label for="sleep_duration_form">睡眠時長</label>
                         <input type="time" id="sleep_duration_form" name="sleep_duration_form" required>
                     </div>
                 </div>
+                <!-- 表單元件：睡眠品質(複選) -->
+                <fieldset data-role="controlgroup" data-type="horizontal" aria-required="true"> <!-- BUG：這裡應該要 必填 但實際上沒有這個效果 -->
+                    <legend>睡眠品質(複選)</legend>
+                    <label for="good_quality_form">很棒</label>
+                    <input type="radio" id="good_quality_form" name="quality_form" value="很棒">
 
+                    <label for="normal_quality_form">正常</label>
+                    <input type="radio" id="normal_quality_form" name="quality_form" value="正常">
 
-                <a href="#page_form_result" data-role="button">儲存紀錄</a>
+                    <label for="bad_quality_form">不好</label>
+                    <input type="radio" id="bad_quality_form" name="quality_form" value="不好">
+                </fieldset>
+                <!-- 表單元件：睡眠情況 -->
+                <label for="text_sleep_form">睡眠情況(非必填)</label>
+                <textarea id="text_sleep_form" name="text_sleep_form"></textarea>
+                <!-- 表單元件：儲存紀錄 -->
+                <input type="submit" value="儲存紀錄">
+                <!-- <a href="#page_form_result" data-role="button">儲存紀錄</a> -->
             </form>
 
             

@@ -1,7 +1,3 @@
-.white_font_color {
-    color: white;
-}
-
 /* 開頭動畫 page_opening */
 #page_opening {
     text-align: center;
@@ -17,10 +13,11 @@
 #div_opening_animation,
 #div_opening_animation div,
 #div_opening_animation img,
-#div_opening_animation h4,
+#div_opening_animation h1,
 #div_opening_animation p {
     position: absolute;
-    /* visibility: hidden; */
+    color:white;
+    visibility: hidden;
     /* 這一段程式用來切換動畫div顯示或關閉 */
 }
 #background_opening_animation {
@@ -34,13 +31,15 @@
     transform: translate(-50%, -50%);
     width: 35vw;
 }
-h4,p {
+#div_opening_animation h1,p {
     left: 50vw;
     transform: translate(-50%, -50%);
 }
-h4 {
+#div_opening_animation h1 {
     top: 55vh;
     width: 15em;
+    font-weight: normal;
+    font-size: 1.3em;
 }
 p {
     top: 70vh;
@@ -54,14 +53,19 @@ p {
     100% {opacity: 0;}
 }
 #logo_icon_background,
-#div_opening_animation h4,
+#div_opening_animation h1,
 #div_opening_animation p {
     animation: opening_animation 3s linear 0s 1 normal;
 }
 
-audio {
+/* audio {
     position: absolute;
     left: 0;
     bottom: 0;
-    /* 這個記得刪除 */
+    這個記得刪除
+} */
+
+/* 紀錄睡眠 page_form */
+#page_form {
+    text-align: center;
 }

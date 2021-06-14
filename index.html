@@ -38,9 +38,9 @@
     <div data-role="page" id="page_opening"  data-theme="a">
         <div data-role="content" id="content_page_opening">
             <form method="GET" action="">
-                <a href="#" data-role="button" id="button_gotoform_page_opening">紀錄睡眠</a>
+                <a href="#page_form" data-role="button" id="button_gotoform_page_opening">紀錄睡眠</a>
                 <br>
-                <a href="#" data-role="button" id="button_gotoreport_page_opening">統計報告</a>
+                <a href="#page_report" data-role="button" id="button_gotoreport_page_opening">統計報告</a>
                 <br>
                 <br>
                 <label for="sound_switch">音效</label>
@@ -53,10 +53,11 @@
         <div id="div_opening_animation">
             <div id="background_opening_animation"></div>
             <img id="logo_icon_background" src="images/logo_icon_background.png" alt="logo_icon_background">
-            <h4 class="white_font_color">睡眠紀錄APP</h4>
+            <h1 class="white_font_color">睡眠紀錄APP</h1>
             <p class="white_font_color">
-                早啊~<br>
-                今天一起加油吧！
+                早起的蟲兒被鳥吃！？
+                <!-- 早啊~<br>
+                今天一起加油吧！ -->
             </p>
             
             <!-- <audio controls loop>
@@ -78,7 +79,27 @@
             <h1>紀錄睡眠</h1>
         </div>
         <div data-role="content">
-            <a href="#page_form_result" data-role="button">測試：送出表單結果</a>
+            <form method="POST" action="">
+                <label for="date_form">日期</label>
+                <input type="date" id="date_form" name="date_form" required>
+                <div class="ui-grid-a">
+                    <!-- 設定兩欄 ui-grid-a a=2欄 b=3欄... -->
+                    <div class="ui-block-a">
+                        <!-- 第一列第一欄 ui-block-a a=第一欄 b=第二欄... -->
+                        <label for="sleep_time_form">起床時間</label>
+                        <input type="time" id="sleep_time_form" name="sleep_time_form" required>
+                    </div>
+                    <div class="ui-block-b">
+                        <label for="sleep_duration_form">睡眠時長</label>
+                        <input type="time" id="sleep_duration_form" name="sleep_duration_form" required>
+                    </div>
+                </div>
+
+
+                <a href="#page_form_result" data-role="button">儲存紀錄</a>
+            </form>
+
+            
         </div>
         <div data-role="footer" data-position="fixed">
             <h6>Copyright 2021 Lex</h6>

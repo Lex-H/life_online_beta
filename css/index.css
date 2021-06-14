@@ -39,11 +39,11 @@ h4,p {
 }
 h4 {
     top: 57vh;
-    width: 10em;
+    width: 15em;
 }
 p {
     top: 70vh;
-    width: 50vw;
+    width: 100vw;
     font-size: 1.5em;
 }
 /* 動畫設定 */

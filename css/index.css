@@ -32,13 +32,14 @@
     left: 50vw;
     top: 45vh;
     transform: translate(-50%, -50%);
+    width: 35vw;
 }
 h4,p {
     left: 50vw;
     transform: translate(-50%, -50%);
 }
 h4 {
-    top: 57vh;
+    top: 55vh;
     width: 15em;
 }
 p {
@@ -47,13 +48,16 @@ p {
     font-size: 1.5em;
 }
 /* 動畫設定 */
-/* @keyframes opening_animation{
-    0% {width: 0px;}
-    100% {width: 192px;}
+@keyframes opening_animation {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
 }
-#logo_icon_background{
-    animation: opening_animation 2s linear 0s 1 normal;
-} */
+#logo_icon_background,
+#div_opening_animation h4,
+#div_opening_animation p {
+    animation: opening_animation 3s linear 0s 1 normal;
+}
 
 audio {
     position: absolute;

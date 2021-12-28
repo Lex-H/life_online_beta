@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+
+<head>
+    <title>form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 函示庫 -->
+    <script src="https://lex-h.github.io/life_online_beta/js/jquery-3.6.0.js"></script>
+    <script src="https://lex-h.github.io/life_online_beta/js/jquery-migrate-1.4.1.js"></script>
+    <script src="https://lex-h.github.io/life_online_beta/js/jquery-migrate-3.3.2.js"></script>
+    <script src="https://lex-h.github.io/life_online_beta/js/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="https://lex-h.github.io/life_online_beta/css/jquery.mobile-1.4.5.css">
+    <!-- 自訂的 data-theme -->
+    <link rel="stylesheet" href="https://lex-h.github.io/life_online_beta/css/theme01_moring.css">
+    <link rel="stylesheet" href="https://lex-h.github.io/life_online_beta/css/jquery.mobile.icons.min.css">
+    <!-- 主題A色票
+    來源：https://color.adobe.com/zh/search?q=moring
+        /* Color Theme Swatches in Hex */
+    .More-like-this-2-1-hex { color: #FFFBA6; }
+    .More-like-this-2-2-hex { color: #C5FF91; }
+    .More-like-this-2-3-hex { color: #E8FFEC; }
+    .More-like-this-2-4-hex { color: #C8E8DF; }
+    .More-like-this-2-5-hex { color: #B8EEFF; }
+    -->
+
+
+    <!-- CSS 格式修改 -->
+    <style>
+        /* 紀錄睡眠 page_form */
+        #myForm {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <!-- 表單元件：日期 -->
+        <label for="date_sleep_form">日期(非當日再填)</label>
+        <input type="date" id="date_sleep_form" name="date_sleep_form">
+
+        <div class="ui-grid-a"> <!-- 設定兩欄 ui-grid-a a=2欄 b=3欄... -->
+            <!-- 表單元件：起床時間 -->
+            <div class="ui-block-a"> <!-- 第一列第一欄 ui-block-a a=第一欄 b=第二欄... -->
+                <label for="sleep_time_form">起床時間(必填)</label>
+                <input type="time" id="sleep_time_form" name="sleep_time_form" required>
+            </div>
+            <!-- 表單元件：睡眠時長 -->
+            <div class="ui-block-b">
+                <label for="sleep_duration_form">睡眠時長(必填)</label>
+                <input type="time" id="sleep_duration_form" name="sleep_duration_form" required>
+            </div>
+        </div>
+        <!-- 表單元件：睡眠品質(複選) -->
+        <fieldset data-role="controlgroup" data-type="horizontal" aria-required="true"> <!-- BUG：這裡應該要 必填 但實際上沒有這個效果 -->
+            <legend>睡眠品質(複選；必填)</legend>
+            <label for="good_quality_form">很棒</label>
+            <input type="checkbox" id="good_quality_form" name="quality_form" value="很棒">
+
+            <label for="normal_quality_form">正常</label>
+            <input type="checkbox" id="normal_quality_form" name="quality_form" value="正常">
+
+            <label for="bad_quality_form">不好</label>
+            <input type="checkbox" id="bad_quality_form" name="quality_form" value="不好">
+        </fieldset>
+        <!-- 表單元件：睡眠情況 -->
+        <label for="text_sleep_form">睡眠情況(非必填)</label>
+        <textarea id="text_sleep_form" name="text_sleep_form"></textarea>
+        <!-- 表單元件：儲存紀錄 -->
+        <!-- <button id="submitButton" type="submit">儲存紀錄</button> -->
+        <input type="button" id="submitButton" value="儲存紀錄">
+        --備註--<br>
+        <a href="https://docs.google.com/spreadsheets/d/1SoaSalwpYdq98Vky8di3uUtvNprNI4lcsY6mSoLAO5o/edit#gid=0">查看結果</a><br>
+        睡眠時常超過12小時請到<a href="https://docs.google.com/spreadsheets/d/1SoaSalwpYdq98Vky8di3uUtvNprNI4lcsY6mSoLAO5o/edit#gid=0">GoogleSheet</a>手動修改
+        
+        
+        <!-- <a href="#page_form_result" data-role="button">儲存紀錄</a> -->
+    </form>
+
+    <!-- JavaScript程式 -->
+    <script>
+        // 抓輸入的值
+
+        function getValues() {
+
+            var date_sleep_form = document.getElementById("date_sleep_form");
+            var sleep_time_form = document.getElementById("sleep_time_form");
+            var sleep_duration_form = document.getElementById("sleep_duration_form");
+            
+            var quality_form = document.getElementsByName("quality_form");
+            var quality_form_Answer = "/";
+            for (var i=0; i<3; i++)
+              if (quality_form[i].checked)
+                quality_form_Answer = quality_form_Answer + quality_form[i].value +"/";
+
+            var text_sleep_form = document.getElementById("text_sleep_form");
+
+            
+            var rowData = {
+                date_sleep_form: date_sleep_form.value,
+                sleep_time_form: sleep_time_form.value,
+                sleep_duration_form: sleep_duration_form.value,
+                quality_form_Answer: quality_form_Answer,
+                text_sleep_form: text_sleep_form.value
+            };
+            
+            
+            if ((rowData.sleep_time_form.length == 0) || (rowData.sleep_duration_form == 0) || (rowData.quality_form_Answer == "/")) {
+                // 判斷必填項目有沒有填
+                alert("必填項目必填！");
+            }else {
+                // 上傳資料 記得取消註解
+                google.script.run.addData(rowData);
+
+                // 清除表單上的資料
+                document.getElementById("myForm").reset();
+
+                // 完成後的訊息
+                alert("儲存完成！");
+                // window.location.href='https://lex-h.github.io/life_online_beta/index.html#page_form_result';
+                
+            }
+        }
+
+        document.getElementById("submitButton").addEventListener("click", getValues);
+    </script>
+</body>
+</html>

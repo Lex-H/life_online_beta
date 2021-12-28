@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- height=device-height可能會用到 沒用可刪掉 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 從主屏幕以全屏模式啓動頁面 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +35,7 @@
     <script src="js/index.js"></script>
 </head>
 <body>
-    <!-- 開頭動畫 page_opening -->
+    <!-- 開頭動畫and首頁 page_opening -->
     <div data-role="page" id="page_opening"  data-theme="a">
         <div data-role="content" id="content_page_opening">
             <form method="GET" action="">
@@ -50,6 +51,7 @@
                 </select>
             </form>
         </div>
+        <!-- 在CSS切換是否顯示開頭動畫 -->
         <div id="div_opening_animation">
             <div id="background_opening_animation"></div>
             <img id="logo_icon_background" src="images/logo_icon_background.png" alt="logo_icon_background">
@@ -78,45 +80,12 @@
             <a href="#page_form_panel" data-icon="bars" data-iconpos="notext"></a>
             <h1>紀錄睡眠</h1>
         </div>
-        <div data-role="content">
-            <form method="GET" action=""> <!-- 這裡的設定式測試用的 到時候要改成 method、action按照後端需求改 -->
-                <!-- 表單元件：日期 -->
-                <label for="date_sleep_form">日期</label>
-                <input type="date" id="date_sleep_form" name="date_sleep_form" required>
-
-                <div class="ui-grid-a"> <!-- 設定兩欄 ui-grid-a a=2欄 b=3欄... -->
-                    <!-- 表單元件：起床時間 -->
-                    <div class="ui-block-a"> <!-- 第一列第一欄 ui-block-a a=第一欄 b=第二欄... -->
-                        <label for="sleep_time_form">起床時間</label>
-                        <input type="time" id="sleep_time_form" name="sleep_time_form" required>
-                    </div>
-                    <!-- 表單元件：睡眠時長 -->
-                    <div class="ui-block-b">
-                        <label for="sleep_duration_form">睡眠時長</label>
-                        <input type="time" id="sleep_duration_form" name="sleep_duration_form" required>
-                    </div>
-                </div>
-                <!-- 表單元件：睡眠品質(複選) -->
-                <fieldset data-role="controlgroup" data-type="horizontal" aria-required="true"> <!-- BUG：這裡應該要 必填 但實際上沒有這個效果 -->
-                    <legend>睡眠品質(複選)</legend>
-                    <label for="good_quality_form">很棒</label>
-                    <input type="radio" id="good_quality_form" name="quality_form" value="很棒">
-
-                    <label for="normal_quality_form">正常</label>
-                    <input type="radio" id="normal_quality_form" name="quality_form" value="正常">
-
-                    <label for="bad_quality_form">不好</label>
-                    <input type="radio" id="bad_quality_form" name="quality_form" value="不好">
-                </fieldset>
-                <!-- 表單元件：睡眠情況 -->
-                <label for="text_sleep_form">睡眠情況(非必填)</label>
-                <textarea id="text_sleep_form" name="text_sleep_form"></textarea>
-                <!-- 表單元件：儲存紀錄 -->
-                <input type="submit" value="儲存紀錄">
-                <!-- <a href="#page_form_result" data-role="button">儲存紀錄</a> -->
-            </form>
-
-            
+        <div data-role="content" id="page_form_form">
+            <!-- 表單本身程式碼在 GoogleAppScript 裡面 -->
+            <!-- 網址：https://script.google.com/home/projects/1Jnrogwo9D71IsNZRFVkJXSKj8R3Q0__DAbCpwLhvzMTgkcuVamxdgr-J/edit -->
+            <!-- 每次更新佈署都要更新網址 -->
+            <iframe src="https://script.google.com/macros/s/AKfycbzpgafqL6ZkMSzFVlePgjB4_rHd6iZP_PD_GVAy4GLa6-a3lsNoREsMMQkoMM5xQ7dxeQ/exec" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
+            </iframe>
         </div>
         <div data-role="footer" data-position="fixed">
             <h6>Copyright 2021 Lex</h6>

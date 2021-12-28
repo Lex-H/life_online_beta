@@ -1,3 +1,6 @@
+/* 全局設定 */
+
+
 /* 開頭動畫 page_opening */
 #page_opening {
     text-align: center;
@@ -17,8 +20,8 @@
 #div_opening_animation p {
     position: absolute;
     color:white;
+    /* 切換動畫div顯示或關閉 */
     visibility: hidden;
-    /* 這一段程式用來切換動畫div顯示或關閉 */
 }
 #background_opening_animation {
     width: 100vw;
@@ -68,4 +71,25 @@ p {
 /* 紀錄睡眠 page_form */
 #page_form {
     text-align: center;
+}
+
+#page_form_form {
+    overflow: auto;
+    height: 80vh;
+}
+
+#page_form_form
+,iframe {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

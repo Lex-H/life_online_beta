@@ -73,6 +73,7 @@ p {
     text-align: center;
 }
 
+    /* iframe */
 #page_form_form {
     overflow: auto;
     height: 80vh;
@@ -86,6 +87,32 @@ p {
 }
 
 iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* 送出表單結果 */
+#page_form_result {
+    text-align: center;
+}
+    /* iframe */
+#page_form_result_content {
+    overflow: auto;
+    height: 80vh;
+}
+
+#page_form_result_content
+, #page_form_result iframe {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+#page_form_result iframe {
     display: block;
     width: 100%;
     height: 100%;
